@@ -20,7 +20,7 @@ element 升级到了 2.0 了， 不用担心可以直接用。
 
 安装 egrid:
 
-> `npm i egrid -S`
+> `npm i egrid-element-table -S`
 
 !> `egrid` 只依赖 `Element` 中的 `Table` 与 `TableColumn` 组件不会将整个 `Element` 导入。
 但不包含样式，`Table` 的样式需要用户手动引入。
@@ -29,7 +29,7 @@ element 升级到了 2.0 了， 不用担心可以直接用。
 
 ```javascript
 import Vue from 'vue'
-import Egrid from 'egrid'
+import Egrid from 'egrid-element-table'
 
 // table 的样式需要手动引入
 import 'element-ui/lib/theme-default/icon.css'
