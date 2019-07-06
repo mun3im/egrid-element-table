@@ -4,7 +4,7 @@
     v-bind="tableBind"
     v-on="$listeners">
     <template v-for="tp in typesColumns">
-      <el-table-column 
+      <el-table-column
         v-if="tp.type === 'expand'"
         v-bind="tp.props"
         type="expand"
@@ -98,7 +98,7 @@ export default {
   },
 
   computed: {
-    // 处理 $attrs 里面 Boolean 类型的 prop 和统一 prop 命名 
+    // 处理 $attrs 里面 Boolean 类型的 prop 和统一 prop 命名
     tableBind () {
       const { $attrs } = this
       const bind = {}
@@ -158,8 +158,9 @@ export default {
       return bind
     },
 
-    getCptBind ({ row, column }, col) {
-      const props = { row, col, column }
+    getCptBind ({ row, column, $index }, col) {
+      const index = $index
+      const props = { row, col, column, index }
       const handler = col.propsHandler
       return handler && handler(props) || props
     }
