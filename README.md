@@ -1,11 +1,9 @@
 # Egrid
 > 原项目[Egrid](https://github.com/kinglisky/egrid) 因为作者不维护了，故 fork 后自己维护，添加新功能
 
-### 基于 `Element-UI` `Table` 组件封装的高阶表格组件，可无缝支持 element 的 table 组件。
+对 element-ui table 组件的封装，复用 el-table-column，少写样板代码
 
-element 升级到了 2.0 了， 不用担心可以无缝升级的~
-
-文档 [https://zaxlct.github.io/egrid-element-table/#/](https://zaxlct.github.io/egrid-element-table/#/)
+### [文档](https://zaxlct.github.io/egrid-element-table/#/)
 
 ### fork 后新增的功能
 1. `propsHandler` 新增 `index`属性（$index），即 `{ row, col, column, index }`
@@ -96,5 +94,3 @@ Vue.use(Egrid)
 这时候我们就有必要在原始的表格组件基础上再封装一层，将这些重复的代码放在组件内部，使用时考虑如何通过一种配置的方式去定制表格。
 
 `egrid` 就是为此而生的，少写两行是两行。耶~~~
-
-
