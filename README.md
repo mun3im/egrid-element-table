@@ -43,10 +43,6 @@ import 'element-ui/lib/theme-default/icon.css'
 import 'element-ui/lib/theme-default/table.css'
 import 'element-ui/lib/theme-default/table-column.css'
 
-
-
-
-
 Vue.use(Egrid)
 ```
 
