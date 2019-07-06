@@ -1,11 +1,15 @@
 # Egrid
+> 原项目[Egrid](https://github.com/kinglisky/egrid) 因为作者不维护了，故 fork 后自己维护，添加新功能
 
 ### 基于 `Element-UI` `Table` 组件封装的高阶表格组件，可无缝支持 element 的 table 组件。
 
 element 升级到了 2.0 了， 不用担心可以无缝升级的~
 
-文档 [http://kinglisky.github.io/egrid](http://kinglisky.github.io/egrid)
+文档 [https://zaxlct.github.io/egrid-element-table/#/](https://zaxlct.github.io/egrid-element-table/#/)
 
+### fork 后新增的功能
+1. `propsHandler` 新增 `index`属性（$index），即 `{ row, col, column, index }`
+2. 支持 reserve-selection
 
 ### 开发
 

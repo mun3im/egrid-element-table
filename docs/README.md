@@ -1,8 +1,16 @@
 # Egrid
+> 原项目[Egrid](https://github.com/kinglisky/egrid) 因为作者不维护了，故 fork 后自己维护，添加新功能
+
+
+## fork 后新增的功能
+1. `propsHandler` 新增 `index`属性（$index），即 `{ row, col, column, index }`
+2. 支持 reserve-selection
+
+## 介绍
 
 基于 `Element-UI` `Table` 组件封装的高阶表格组件，可无缝支持 element 的 table 组件。
 
-min 文件仅 3.8 kb。实现比较简单，源码在这： [https://github.com/kinglisky/egrid](https://github.com/kinglisky/egrid)
+min 文件仅 3.8 kb。实现比较简单，源码在这： [https://github.com/zaxlct/egrid-element-table](https://github.com/zaxlct/egrid-element-table)
 
 element 升级到了 2.0 了， 不用担心可以直接用。
 
@@ -170,12 +178,13 @@ export default {
 | 属性   | 说明 | 可选项 | 默认 |
 | ---   | ---- | --- | --- |
 | `data` | `Array` table 的 data 属性 | - | `[]` |
-| `columns` | `Array` 用于控制表格列渲染 | - | `[]` | 
+| `columns` | `Array` 用于控制表格列渲染 | - | `[]` |
 | `column-type` | `[String, Array]` 映射到 `Element Table-column` 的 `type` 属性，用于支持功能特殊的功能列（多选、索引、折叠行），不设置则不显示功能列 | `selection/index/expand` | - |
 | `column-key-map` | `Object` 用于映射 `Table-column` 中 `label` 与 `prop` 值对应的 key | - | `{ label: 'label', prop: 'prop' }` |
 | `columns-props` | `Object` 用于定义所有 `columns` 公共的 `Element Table-column` 属性  | - | - |
 | `columns-schema` | `Object` 可以用来单独定义 `columns` 的某一列，这里的设置会覆盖 `columnsProps` 的配置属性 <br> 使用 `Element Table-column` 中 `label` 值进行匹配 | - | - |
 | `columns-handler` | `Function` 可用于在现有的 `columns` 进行操作，对 `columns` 进行增删改操作。 | - | - |
+| `reserve-selection` | `Boolean` 仅对 column-type=selection 有效，类型为 Boolean（**fork 后新增属性**） | - | - |
 | `slot-append` | `Boolean` 是否使用 `Element Table` 的 `slot="append"` | `true/false` | `false` |
 
 
@@ -205,8 +214,8 @@ const columns = [
         console.log('custom-event', data)
       }
     },
-    propsHandler: function ({ row, col, column }) {
-      return { row, col, column }
+    propsHandler: function ({ row, col, column, index }) {
+      return { row, col, column, index }
     }
     ......
   }
@@ -233,13 +242,13 @@ v-on="{ 'custom-event': function (data) {...} }"
 用于转化 `egrid` 组件内部附加 `<component>` 上的 props 。默认的附加在 `<component>` 上的 props 是：
 
 ```html
-<component v-bind="{ row, col, column }" :is="col.component"></component>
+<component v-bind="{ row, col, column, index }" :is="col.component"></component>
 ```
 
-可通过 `propsHandler` 对 `{ row, col, column }`  进行转化你想要的形式：
+可通过 `propsHandler` 对 `{ row, col, column, index }`  进行转化你想要的形式：
 
 ```javascript
-propsHandler({ row, col, column })
+propsHandler({ row, col, column, index })
 
 // 转化成 =>
 
@@ -307,7 +316,7 @@ columnsHandler (cols) {
 
 * `index`： 编号索引
 
-* `expand`： 表格支持折叠展开行 
+* `expand`： 表格支持折叠展开行
 
 当 `column-type` 为 `expand` 时表格支持折叠展开行，此时可用通过 `slot (slot="expand")` 方式自定渲染折叠详情。
 
@@ -351,4 +360,16 @@ allowfullscreen="allowfullscreen" frameborder="0">
 `expand`： 当 `column-type` 为 `expand` 时使用，用于自定义折叠展开内容。
 
 
-
+# reserve-selection
+> fork 后新增功能
+开启 `reserve-selection`时，必须指定 `row-key`，可参考[文档](http://element.eleme.io/#/zh-CN/component/table)
+```html
+<template>
+  <egrid border
+    column-type="selection"
+    reserve-selection
+    row-key="xxx"
+    @selection-change="selectionChange">
+  </egrid>
+</template>
+```
