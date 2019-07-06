@@ -1,5 +1,5 @@
 # Egrid
-> 原项目[Egrid](https://github.com/kinglisky/egrid) 因为作者不维护了，故 fork 后自己维护，添加新功能
+> 原项目[Egrid](https://github.com/kinglisky/egrid) 因为作者不维护了，故 fork 后自己维护，添加新功能
 
 ### 基于 `Element-UI` `Table` 组件封装的高阶表格组件，可无缝支持 element 的 table 组件。
 

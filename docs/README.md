@@ -1,5 +1,5 @@
 # Egrid
-> 原项目[Egrid](https://github.com/kinglisky/egrid) 因为作者不维护了，故 fork 后自己维护，添加新功能
+> 原项目[Egrid](https://github.com/kinglisky/egrid) 因为作者不维护了，故 fork 后自己维护，添加新功能
 
 
 ## fork 后新增的功能
