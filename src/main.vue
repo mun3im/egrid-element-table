@@ -16,6 +16,7 @@
       <el-table-column v-else
         :key="tp.type"
         :type="tp.type"
+        :reserve-selection="reserveSelection && tp.type === 'selection'"
         v-bind="tp.props">
       </el-table-column>
     </template>
@@ -93,6 +94,8 @@ export default {
     columnsSchema: Object,
 
     columnsHandler: Function,
+
+    reserveSelection: Boolean,
 
     slotAppend: Boolean
   },
