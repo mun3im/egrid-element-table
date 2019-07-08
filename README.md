@@ -8,6 +8,7 @@
 ### fork 后新增的功能
 1. `propsHandler` 新增 `index`属性（$index），即 `{ row, col, column, index }`
 2. 支持 reserve-selection
+3. 补充文档
 
 ### 开发
 
