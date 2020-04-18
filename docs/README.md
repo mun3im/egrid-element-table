@@ -365,11 +365,21 @@ allowfullscreen="allowfullscreen" frameborder="0">
 开启 `reserve-selection`时，必须指定 `row-key`，可参考[文档](http://element.eleme.io/#/zh-CN/component/table)
 ```html
 <template>
-  <egrid border
+  <egrid 
+    border
     column-type="selection"
     reserve-selection
     row-key="xxx"
     @selection-change="selectionChange">
   </egrid>
 </template>
+```
+# columnType
+
+```html
+设置序号，以及序号居中
+<egrid>
+  columnType="index"
+  :columnTypeProps="{index: {align: 'center'}}"
+</egrid>  
 ```
